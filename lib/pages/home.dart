@@ -109,7 +109,10 @@ class _HomePageState extends State<HomePage> {
                                 snapShots.data?.duration.inSeconds.toDouble() ??
                                     0.0,
                             min: 0,
-                            onChanged: (double value) {},
+                            onChanged: (value) {
+                              assetsAudioPlayer
+                                  .seek(Duration(seconds: value.toInt()));
+                            },
                           ),
                         ],
                       );
