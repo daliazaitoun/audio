@@ -25,7 +25,8 @@ class _SoundPlayerWidgetState extends State<SoundPlayerWidget> {
     assetsAudioPlayer.open(
       widget.playlist,
       autoStart: false,
-      loopMode: LoopMode.playlist
+      loopMode: widget.playlist.audios.length > 1 ?
+      LoopMode.playlist : LoopMode.single
     );
     assetsAudioPlayer.playSpeed.listen((event) {
       playSpeedEx = event;

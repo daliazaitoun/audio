@@ -1,4 +1,5 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
+import 'package:audio/widgets/sound_player_widget.dart';
 import 'package:flutter/material.dart';
 
 class SongWidget extends StatefulWidget {
@@ -44,8 +45,11 @@ class _SongWidgetState extends State<SongWidget> {
       title: Text(widget.audio.metas.title ?? "No Title"),
       subtitle: Text(widget.audio.metas.artist ?? "No Artist"),
       onTap: () {
-        assetsAudioPlayer.play();
-        
+        showBottomSheet(
+            context: context,
+            builder: (context) {
+              return SoundPlayerWidget(playlist: Playlist(audios: [widget.audio] ));
+            });
       },
     );
   }
